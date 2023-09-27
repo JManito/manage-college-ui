@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
-import { AddCourseRequest } from '../models/add-course-request.model';
-import { CoursesService } from '../services/courses.service';
+import { AddCourseRequest } from '../../models/add-course-request.model';
+import { CoursesService } from '../../services/courses.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -24,7 +24,11 @@ export class AddCourseComponent implements OnDestroy {
     this.addCourseSubcription = this.coursesService.addCourse(this.model)
     .subscribe({
       next: (response) => {
-        console.log("Added!")
+        if(response == null) {
+          console.log("Curso ja existente")
+        } else {
+          console.log("Added!")
+        }
       },
       error: (error) => {
         console.log("Error in Angular model!")

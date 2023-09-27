@@ -8,12 +8,14 @@ import { CoursesListComponent } from './features/courses/courses-list/courses-li
 import { AddCourseComponent } from './features/courses/add-course/add-course.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import { CoursesEditComponent } from './features/courses/courses-edit/courses-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CoursesListComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    CoursesEditComponent
   ],
   imports: [
     BrowserModule,

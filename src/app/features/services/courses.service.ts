@@ -21,5 +21,8 @@ export class CoursesService {
     return this.http.get<GetCourseRequest[]>(this.baseApiUrl + '/api/Courses');
   }
 
+  editCourse(model: GetCourseRequest): Observable<void> {
+    return this.http.put<void>(this.baseApiUrl + '/api/Courses', model);
+  }
 
 }
