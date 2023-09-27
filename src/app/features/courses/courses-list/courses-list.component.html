@@ -1,9 +1,23 @@
+
 <div class="container">
-    <h1 class="mt-3">Courses List</h1>
+    <h1 class="mt-3">Cursos Disponiveis</h1>
+    <table class="table" *ngIf="courses && courses.length > 0">
 
-    <div class="d-flex justify-content-end mt-3">
-        <a [routerLink]="['/courses/add']" class="btn btn-primary"> Add Course </a>
-        
-    </div>
-
+        <thead>
+            <tr>
+                <th>Course Id</th>
+                <th>Course Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courses">
+                <td>{{ course.CourseId }}</td>
+                <td>{{ course.CourseName }}</td>
+                <td> <a [routerLink]="['courses', 'edit', course.CourseId]"> Edit </a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!courses || courses.length <= 0"> No courses available/found </p>
+    <a class="btn btn-primary" [routerLink]="['/courses/add']">Adicionar Cursos</a>
 </div>

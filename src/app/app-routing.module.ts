@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'courses/add',
     component: AddCourseComponent
+  },
+  {
+    path: 'courses/edit/:id',
+    component: CoursesListComponent
   }
 ];
 
