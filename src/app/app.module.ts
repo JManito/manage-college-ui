@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { CoursesEditComponent } from './features/courses/courses-edit/courses-edit.component';
 import { CoursesDeleteComponent } from './features/courses/courses-delete/courses-delete.component';
+import { DisciplinesListComponent } from './features/disciplines/disciplines-list/disciplines-list.component';
+import { DisciplinesEditComponent } from './features/disciplines/disciplines-edit/disciplines-edit.component';
+import { DisciplinesCreateComponent } from './features/disciplines/disciplines-create/disciplines-create.component';
+import { DisciplinesDeleteComponent } from './features/disciplines/disciplines-delete/disciplines-delete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +21,11 @@ import { CoursesDeleteComponent } from './features/courses/courses-delete/course
     CoursesListComponent,
     AddCourseComponent,
     CoursesEditComponent,
-    CoursesDeleteComponent
+    CoursesDeleteComponent,
+    DisciplinesListComponent,
+    DisciplinesEditComponent,
+    DisciplinesCreateComponent,
+    DisciplinesDeleteComponent
   ],
   imports: [
     BrowserModule,

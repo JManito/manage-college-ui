@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="mt-3">Todas as disciplinas disponiveis</h1>
+    <table class="table" *ngIf="Disciplines && Disciplines.length > 0">
+
+        <thead>
+            <tr>
+                <th>Discipline Id</th>
+                <th>Discipline Name</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Discipline of Disciplines">
+                <td>{{ Discipline.disciplineId }}</td>
+                <td>{{ Discipline.disciplineName }}</td>
+                <td> <a [routerLink]="['edit', Discipline.disciplineId]"> Edit </a></td>
+                <td> <a [routerLink]="['delete', Discipline.disciplineId]"> Delete </a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p *ngIf="!Disciplines || Disciplines.length <= 0"> No disciplines available/found </p>
+    <a class="btn btn-primary" [routerLink]="['/Disciplines/add']">Adicionar Disciplinas</a>
+</div>
