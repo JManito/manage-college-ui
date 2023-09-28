@@ -9,13 +9,15 @@ import { AddCourseComponent } from './features/courses/add-course/add-course.com
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { CoursesEditComponent } from './features/courses/courses-edit/courses-edit.component';
+import { CoursesDeleteComponent } from './features/courses/courses-delete/courses-delete.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CoursesListComponent,
     AddCourseComponent,
-    CoursesEditComponent
+    CoursesEditComponent,
+    CoursesDeleteComponent
   ],
   imports: [
     BrowserModule,

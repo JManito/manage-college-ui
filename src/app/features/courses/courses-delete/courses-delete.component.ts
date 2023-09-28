@@ -8,11 +8,11 @@ import { GetCourseRequest } from '../../models/get-course-request.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-courses-edit',
-  templateUrl: './courses-edit.component.html',
-  styleUrls: ['./courses-edit.component.scss']
+  selector: 'app-courses-delete',
+  templateUrl: './courses-delete.component.html',
+  styleUrls: ['./courses-delete.component.scss']
 })
-export class CoursesEditComponent implements OnDestroy{
+export class CoursesDeleteComponent {
 
   model: AddCourseRequest;
   private addCourseSubcription?: Subscription;
@@ -32,43 +32,15 @@ export class CoursesEditComponent implements OnDestroy{
       next: (params) => {
         const id = params.get('id');
         if(id){
-          this.coursesService.getCourse(id).subscribe({
+          this.coursesService.deleteCourse(id).subscribe({
             next: (response) => {
               this.courseDetails = response;
+              this.router.navigate(['/courses'])
             }
           })
         }
       }
     })
   }
-
-  onFormSubmit() {
-    
-    this.route.paramMap.subscribe({
-      next: (params) => {
-        const id = params.get('id');
-        if(id){
-          this.coursesService.editCourse(this.courseDetails, id).subscribe({
-            next: (response) => {
-              if(response == null) {
-                console.log("Curso ja existente")
-              } else {
-                console.log("Curso editado!")
-                this.router.navigate(['/courses'])
-              }
-            },
-            error: (error) => {
-              console.log("Erro!")
-            }
-          })
-        }
-      }
-    })
-  }
-
-  ngOnDestroy(): void {
-    this.addCourseSubcription?.unsubscribe();
-  }
-
 
 }

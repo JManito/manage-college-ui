@@ -14,15 +14,23 @@ export class CoursesService {
   constructor(private http: HttpClient) { }
 
   addCourse(model: AddCourseRequest): Observable<void> {
-    return this.http.post<void>(this.baseApiUrl + '/api/Courses', model);
+    return this.http.post<void>(this.baseApiUrl + '/api/courses', model);
   }
 
   getAllCourses(): Observable<GetCourseRequest[]> {
-    return this.http.get<GetCourseRequest[]>(this.baseApiUrl + '/api/Courses');
+    return this.http.get<GetCourseRequest[]>(this.baseApiUrl + '/api/courses');
   }
 
-  editCourse(model: GetCourseRequest): Observable<void> {
-    return this.http.put<void>(this.baseApiUrl + '/api/Courses', model);
+  editCourse(model: GetCourseRequest, id: string): Observable<void> {
+    return this.http.put<void>(this.baseApiUrl + '/api/courses/' + id, model);
+  }
+
+  deleteCourse(id: string): Observable<GetCourseRequest> {
+    return this.http.delete<GetCourseRequest>(this.baseApiUrl + '/api/courses/' + id);
+  }
+
+  getCourse(id: string): Observable<GetCourseRequest>{
+    return this.http.get<GetCourseRequest>(this.baseApiUrl + '/api/courses/' + id);
   }
 
 }

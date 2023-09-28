@@ -8,6 +8,7 @@
                 <th>Course Id</th>
                 <th>Course Name</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,7 @@
                 <td>{{ course.id }}</td>
                 <td>{{ course.courseName }}</td>
                 <td> <a [routerLink]="['edit', course.id]"> Edit </a></td>
+                <td> <a [routerLink]="['delete', course.id]"> Delete </a></td>
             </tr>
         </tbody>
     </table>
