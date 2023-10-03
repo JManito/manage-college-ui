@@ -45,4 +45,31 @@ export class DisciplinesEditComponent {
       }
     })
   }
+  onFormSubmit() {
+    
+    this.route.paramMap.subscribe({
+      next: (params) => {
+        const id = params.get('id');
+        if(id){
+          this.disciplinesService.editDiscipline(this.disciplineDetails, id).subscribe({
+            next: (response) => {
+              if(response == null) {
+                console.log("Disciplina ja existente")
+              } else {
+                console.log("Disciplina editada!")
+                this.router.navigate(['/disciplines'])
+              }
+            },
+            error: (error) => {
+              console.log("Erro!")
+            }
+          })
+        }
+      }
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.addDisciplineSubcription?.unsubscribe();
+  }
 }

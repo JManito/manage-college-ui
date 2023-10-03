@@ -13,7 +13,6 @@ import { DisciplinesDeleteComponent } from './features/disciplines/disciplines-d
 
 const routes: Routes = [
   
-  
 
   //Routes for Course management pages
   { path: 'courses', component: CoursesListComponent},
@@ -29,12 +28,7 @@ const routes: Routes = [
     
   
 
-
-
 ];
-
-
-
 
 
 @NgModule({

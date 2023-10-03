@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { GetCourseRequest } from '../../models/get-course-request.model';
 import { CoursesService } from '../../services/courses.service';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { AddCourseComponent } from '../add-course/add-course.component';
 
 @Component({
   selector: 'app-courses-list',
@@ -10,8 +12,19 @@ import { CoursesService } from '../../services/courses.service';
 
 export class CoursesListComponent {
   courses: GetCourseRequest[] = [];
+  modalRef: MdbModalRef<AddCourseComponent> | null = null;
 
-  constructor(private CoursesService: CoursesService){  }
+  constructor(private CoursesService: CoursesService, private modalService: MdbModalService){ 
+    
+   }
+
+   openModal() {
+    
+    this.modalRef = this.modalService.open(AddCourseComponent, {
+      modalClass: 'modal-fullscreen'
+    })
+  }
+
   
   ngOnInit(): void {
     this.CoursesService.getAllCourses().subscribe({
@@ -26,4 +39,5 @@ export class CoursesListComponent {
     })
 
   }
+  
 }
