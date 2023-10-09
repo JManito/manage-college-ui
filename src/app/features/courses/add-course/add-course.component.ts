@@ -2,9 +2,6 @@ import { Component, OnDestroy } from '@angular/core';
 import { AddCourseRequest } from '../../models/add-course-request.model';
 import { CoursesService } from '../../services/courses.service';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
-
 
 @Component({
   selector: 'app-add-course',
@@ -17,7 +14,7 @@ export class AddCourseComponent implements OnDestroy {
   private addCourseSubcription?: Subscription;
 
 
-  constructor(private router: Router, private coursesService: CoursesService, public modalRef: MdbModalRef<AddCourseComponent>){
+  constructor(private coursesService: CoursesService){
     this.model = {
       CourseName: ''
     };
@@ -31,7 +28,6 @@ export class AddCourseComponent implements OnDestroy {
           console.log("Curso ja existente")
         } else {
           console.log("Added!")
-          this.router.navigate(['/courses'])
         }
       },
       error: (error) => {
