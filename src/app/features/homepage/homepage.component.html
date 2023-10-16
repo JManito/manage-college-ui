@@ -1,0 +1,22 @@
+<div class="container position-relative ">
+    <div class="row">
+        <h1 class="display-2 mt-5 mb-5">Bem-vindo à Faculdade Virtual</h1>
+        <div class="container-2">
+            <p class="fs-lg b i opacity-7 w-xl-85"><strong>Antes de continuar escolha o seu perfil:</strong></p>
+            <div class="btn-group-justified">
+                <div class="btn-group-justified mt-5">
+                    <a class="btn btn-lg btn-primary me-5 display-3" (click)="setLoggedAs('Professor')">Professor</a>
+                    <a class="btn btn-lg btn-primary me-3" (click)="setLoggedAs('Aluno')">Aluno</a>
+                </div>
+                <div class="btn-group-justified mt-5">
+                    <a class="btn btn-lg btn-primary" (click)="setLoggedAs('Administrador')">Administrador</a>
+                </div>
+                <span class="form-control is-invalid fixed-bottom" *ngIf="isErrorTextVisible">{{error}}</span>
+                <div class="mt-5 footer" *ngIf="isTextVisible" ><p>De momento encontra-se ligado como<br><span class="logged"><strong>{{loggedAs}}</strong></span></p></div>
+                <div class="btn-group-justified mt-5">
+                    <a class="btn btn-lg btn-primary" *ngIf="isTextVisible" (click)="setLoggedAs('Unauthenticated')">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

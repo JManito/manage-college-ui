@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Open Sans';
+    src: url(https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700&subset=latin-ext,cyrillic) ;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.bg-homepage {
+    background-image: url("../src/assets/img/Cambridge.jpg");
+    -webkit-background-size:cover;
+    -o-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    color:azure;
+    margin:0px;
+    height:100%;
+    width:100%;
+}

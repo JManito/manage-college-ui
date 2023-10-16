@@ -1,0 +1,22 @@
+body
+{
+ margin:0px;
+ height:100%;
+ width:100%;
+ background:url('../../../assets/img/Cambridge.jpg')no-repeat center center fixed; 
+ -webkit-background-size:cover;
+ -o-background-size:cover;
+ -moz-background-size:cover;
+ background-size:cover;
+}
+
+.container-2 {
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.2); /* Low opacity black */
+    color: #fff; /* White text color for contrast */
+  
+    /* You can further customize the container's styles as needed */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}

@@ -9,7 +9,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Gestão Universidade</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="isTextVisible">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Listagens
             </a>
@@ -17,8 +17,7 @@
               <li><a class="dropdown-item" [routerLink]="['/courses']">Cursos</a></li>
               <li><a class="dropdown-item" [routerLink]="['/disciplines']">Disciplinas</a></li>
               <li><a class="dropdown-item" routerLink="">Alunos</a></li>
-              <li><a class="dropdown-item" routerLink="">Professores</a></li>
-              <li><a class="dropdown-item" routerLink="">Notas</a></li>
+              <li><a class="dropdown-item" *ngIf="isTextVisibleNav">Professores</a></li>
             </ul>
           </li>
         </ul>

@@ -14,6 +14,9 @@ import { DisciplinesListComponent } from './features/disciplines/disciplines-lis
 import { DisciplinesEditComponent } from './features/disciplines/disciplines-edit/disciplines-edit.component';
 import { DisciplinesCreateComponent } from './features/disciplines/disciplines-create/disciplines-create.component';
 import { DisciplinesDeleteComponent } from './features/disciplines/disciplines-delete/disciplines-delete.component';
+import { HomepageComponent } from './features/homepage/homepage.component';
+import { CoursesEnrollComponent } from './features/courses/courses-enroll/courses-enroll.component';
+import { CoursesDetailsComponent } from './features/courses/courses-details/courses-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,10 @@ import { DisciplinesDeleteComponent } from './features/disciplines/disciplines-d
     DisciplinesListComponent,
     DisciplinesEditComponent,
     DisciplinesCreateComponent,
-    DisciplinesDeleteComponent
+    DisciplinesDeleteComponent,
+    HomepageComponent,
+    CoursesEnrollComponent,
+    CoursesDetailsComponent
   ],
   imports: [
     BrowserModule,

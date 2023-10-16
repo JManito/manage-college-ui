@@ -32,5 +32,4 @@ export class CoursesService {
   getCourse(id: string): Observable<GetCourseRequest>{
     return this.http.get<GetCourseRequest>(this.baseApiUrl + '/api/courses/' + id);
   }
-
 }
