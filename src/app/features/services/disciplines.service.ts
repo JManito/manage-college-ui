@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Discipline } from '../models/discipline.model';
 import { DisciplineAdd } from '../models/discipline-add.model';
+import { DisciplineInfo } from '../models/discipline-info.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,9 @@ export class DisciplinesService
 
   getDiscipline(id: string): Observable<Discipline>{
     return this.http.get<Discipline>(this.baseApiUrl + '/api/Disciplines/' + id);
+  }
+  getDisciplineInfo(id: number): Observable<DisciplineInfo[]>{
+    return this.http.post<DisciplineInfo[]>(this.baseApiUrl + '/api/Disciplines/info', id);
   }
 
 }

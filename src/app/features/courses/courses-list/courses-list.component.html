@@ -7,8 +7,10 @@
                     <tr>
                         <th>Course Id</th>
                         <th>Course Name</th>
-                        <th></th>
-                        <th></th>
+                        <th *ngSwitchCase="'Administrador'"></th>
+                        <th *ngSwitchCase="'Administrador'"></th>
+                        <th *ngSwitchCase="['Professor', 'Aluno'].includes(loggedAs) ? loggedAs : !loggedAs"></th>
+                        <th *ngSwitchCase="'Administrador'"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -17,14 +19,20 @@
                         <td>{{ course.courseName }}</td>
                         <td *ngSwitchCase="'Administrador'"> <a [routerLink]="['edit', course.id]"> Edit </a></td>
                         <td *ngSwitchCase="'Administrador'"> <a [routerLink]="['delete', course.id]"> Delete </a></td>
-                        <td *ngSwitchCase="['Professor', 'Aluno'].includes(loggedAs) ? loggedAs : !loggedAs"> <a [routerLink]="['details', course.id]"> Ver </a></td>
-                        <td *ngSwitchCase="'Aluno'"> <a [routerLink]="['enroll', course.id]"> Inscrever </a></td>
+                        <td *ngSwitchCase="['Professor', 'Aluno'].includes(loggedAs) ? loggedAs : !loggedAs"> <a [routerLink]="['info', course.id]"> Ver </a></td>
+                        <td *ngSwitchCase="'Administrador'"> <a [routerLink]="['enroll', course.id]"> Inscrever </a></td>
                     </tr>
                 </tbody>
             </table>
 
             <p *ngIf="!courses || courses.length <= 0"> No courses available/found </p>
             <a *ngSwitchCase="'Administrador'" class="btn btn-primary" [routerLink]="['/courses/add']">Adicionar Cursos</a>
+            <div class="mt-3">
+                <div class="btn-toolbar text-end">
+                    <button [routerLink]="['/']" class="btn btn-secondary ms-auto"> Voltar </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+ 

@@ -1,0 +1,36 @@
+<div [ngSwitch]="loggedAs">
+    <div *ngSwitchCase="['Administrador', 'Professor', 'Aluno'].includes(loggedAs) ? loggedAs : !loggedAs">
+        <div class="container">
+            <h1 class="mt-3">Notas</h1>
+            
+            <div class="container"*ngIf="studentGrades && studentGrades.length > 0">
+                <h3 class="h3">ID {{studentGrades[0].studentId }} - {{ studentGrades[0].studentName }}</h3>
+                <table class="table" >
+                    <thead>
+                        <tr>
+                            <th>Disciplina</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let disciplinegrade of studentGrades[0].disciplineGrade">
+                            <td>{{ disciplinegrade.disciplineName }}</td>
+                            <td>{{ disciplinegrade.grade }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+            <p *ngIf="!studentGrades || studentGrades.length <= 0"> No student grades available/found </p>
+            <div class="mt-3">
+                <div class="btn-toolbar text-end">
+                    <button [routerLink]="['/students']" class="btn btn-secondary ms-auto"> Voltar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 

@@ -1,0 +1,38 @@
+<div [ngSwitch]="loggedAs">
+    <div *ngSwitchCase="['Administrador', 'Professor', 'Aluno'].includes(loggedAs) ? loggedAs : !loggedAs">
+        <div class="container">
+            <h1 class="mt-3">Professores</h1>
+            <table class="table" *ngIf="professors && professors.length > 0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Birth</th>
+                        <th *ngSwitchCase="['Professor', 'Administrador'].includes(loggedAs) ? loggedAs : !loggedAs">Salary</th>
+                        <th *ngSwitchCase="'Administrador'"></th>
+                        <th *ngSwitchCase="'Administrador'"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let professor of professors">
+                        <td>{{ professor.professorId }}</td>
+                        <td>{{ professor.professorName }}</td>
+                        <td>{{ professor.dateOfBirth }}</td>
+                        <td *ngSwitchCase="['Professor', 'Administrador'].includes(loggedAs) ? loggedAs : !loggedAs">{{ professor.salary }}</td>
+                        <td *ngSwitchCase="'Administrador'"> <a [routerLink]="['edit', professor.professorId]"> Edit </a></td>
+                        <td *ngSwitchCase="'Administrador'"> <a [routerLink]="['delete', professor.professorId]"> Delete </a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p *ngIf="!professors || professors.length <= 0"> No professors available/found </p>
+            <a *ngSwitchCase="'Administrador'" class="btn btn-primary" [routerLink]="['/professors/add']">Adicionar Professores</a>
+            <div class="mt-3">
+                <div class="btn-toolbar text-end">
+                    <button [routerLink]="['/']" class="btn btn-secondary ms-auto"> Voltar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 

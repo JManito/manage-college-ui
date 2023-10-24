@@ -12,13 +12,13 @@
             </div>            
             <div class="mt-3">
                 <label class="form-label"> Selecione Aluno a Inscrever </label>
-                <select class="form-select" name="student" id="student" [(ngModel)]="studentDetails">
+
+
+                <select [(ngModel)]="studentList" #studentSelect (change)="onChange(studentSelect.value)" class="form-select" name="student" id="student">
                     <option *ngFor="let s of studentList" value="{{ s.studentId }}">{{ s.studentId }}  -  {{ s.studentName }}</option>
                   </select>
             
             </div>
-
-
 
             <div class="mt-3">
                 <div class="btn-toolbar text-end">

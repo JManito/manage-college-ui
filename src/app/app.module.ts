@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { DatePipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
@@ -16,7 +16,17 @@ import { DisciplinesCreateComponent } from './features/disciplines/disciplines-c
 import { DisciplinesDeleteComponent } from './features/disciplines/disciplines-delete/disciplines-delete.component';
 import { HomepageComponent } from './features/homepage/homepage.component';
 import { CoursesEnrollComponent } from './features/courses/courses-enroll/courses-enroll.component';
-import { CoursesDetailsComponent } from './features/courses/courses-details/courses-details.component';
+import { CoursesInfoComponent } from './features/courses/courses-info/courses-info.component';
+import { DisciplinesInfoComponent } from './features/disciplines/disciplines-info/disciplines-info.component';
+import { AddProfessorComponent } from './features/professors/add-professor/add-professor.component';
+import { ProfessorListComponent } from './features/professors/professor-list/professor-list.component';
+import { ProfessorEditComponent } from './features/professors/professor-edit/professor-edit.component';
+import { ProfessorDeleteComponent } from './features/professors/professor-delete/professor-delete.component';
+import { StudentDeleteComponent } from './features/students/student-delete/student-delete.component';
+import { StudentEditComponent } from './features/students/student-edit/student-edit.component';
+import { StudentListComponent } from './features/students/student-list/student-list.component';
+import { StudentAddComponent } from './features/students/student-add/student-add.component';
+import { StudentGradesComponent } from './features/students/student-grades/student-grades.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +41,17 @@ import { CoursesDetailsComponent } from './features/courses/courses-details/cour
     DisciplinesDeleteComponent,
     HomepageComponent,
     CoursesEnrollComponent,
-    CoursesDetailsComponent
+    CoursesInfoComponent,
+    DisciplinesInfoComponent,
+    AddProfessorComponent,
+    ProfessorListComponent,
+    ProfessorEditComponent,
+    ProfessorDeleteComponent,
+    StudentDeleteComponent,
+    StudentEditComponent,
+    StudentListComponent,
+    StudentAddComponent,
+    StudentGradesComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +59,7 @@ import { CoursesDetailsComponent } from './features/courses/courses-details/cour
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

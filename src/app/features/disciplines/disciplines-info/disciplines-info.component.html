@@ -1,0 +1,70 @@
+<div [ngSwitch]="loggedAs">
+    <div *ngSwitchCase="['Professor', 'Aluno'].includes(loggedAs) ? loggedAs : !loggedAs">
+        <div class="container">
+            <h1 class="mt-3">Informação Disciplina: </h1>
+            <table class="table" *ngIf="disciplineInfo && disciplineInfo.length > 0">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">Id</th>
+                        <th class="text-center" scope="col">Name</th>
+                        <th class="text-center" scope="col">Professor</th>
+                        <th class="text-center" scope="col">Class Number</th> 
+                        <th class="text-center" scope="col">Class</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let discipline of disciplineInfo" class="align-middle">
+                        <td class="text-center" scope="row">{{ discipline.disciplineId }}</td>
+                        <td class="text-center">{{ discipline.disciplineName }}</td>
+                        <td class=" ">
+                                <span>
+                                    <li class=" list-group-item mt-3">
+                                    <b>Id:</b>
+                                    {{ discipline.disciplineProfessor.professorId }}
+                                    </li>
+                                    <li class=" list-group-item mt-3">
+                                    <b>Name:</b>
+                                    {{ discipline.disciplineProfessor.professorName }}
+                                    </li>
+                                    <li class=" list-group-item mt-3">
+                                    <b>Date of Birth:</b>
+                                    {{ discipline.disciplineProfessor.dateOfBirth }}
+                                    </li>
+                                    <li class=" list-group-item mt-3">
+                                    <b>Salary:</b>
+                                    {{ discipline.disciplineProfessor.salary }}
+                                    </li>
+
+                                </span>
+
+                        </td>
+                        <td class="text-center">{{ discipline.classNumber }}</td>
+                        <td class="text-center">
+                            <div class="discipline-students">
+                                <ul class="">
+                                    <li *ngFor="let student of discipline.disciplineStudent" class="list-group-item mt-3 text-center">
+                                        <span > 
+                                            <b>Name:</b> {{ student.studentName }} 
+                                            <b>Grade:</b> {{ student.grade }}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p *ngIf="!disciplineInfo || disciplineInfo.length <= 0"> No courses available/found </p>
+            <a *ngSwitchCase="'Administrador'" class="btn btn-primary" [routerLink]="['/disciplines/add']">Adicionar Disciplinas</a>
+            
+            <div class="mt-3">
+                <div class="btn-toolbar text-end">
+                    <button [routerLink]="['/courses']" class="btn btn-secondary ms-auto"> Voltar </button>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+ 

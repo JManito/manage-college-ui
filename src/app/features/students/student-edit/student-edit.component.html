@@ -1,0 +1,30 @@
+<div class="container">
+    <h1 class="mt-3">Editar Aluno</h1>
+    <form #form="ngForm" (ngSubmit)="onFormSubmit()">
+        <div class="mt-2">
+            <div class="mt-3">
+                <label class="form-label"> ID </label>
+                <input type="text" readonly id="studentId" class="form-control" name="studentId" [(ngModel)]="studentDetails.studentId">
+            </div>
+            <div class="mt-3">
+                <label class="form-label"> Nome </label>
+                <input type="text" id="courseName" class="form-control" name="courseName" [(ngModel)]="studentDetails.studentName">
+            </div>
+            <div class="mt-3">
+                <label class="form-label"> Data de Nascimento </label>
+                <input type="text" id="dateofBirth" class="form-control" name="dateofBirth" [(ngModel)]="studentDetails.dateOfBirth">
+            </div>
+            <div class="mt-3">
+                <label class="form-label"> Inscrição </label>
+                <input type="text" readonly id="enrollmentNumber" class="form-control" name="enrollmentNumber" [(ngModel)]="studentDetails.enrollmentNumber">
+            </div>
+            <div class="mt-3">
+                <div class="btn-toolbar text-end">
+                    <button type="submit" class="btn btn-primary"> Submeter </button>
+                    <button [routerLink]="['/students']" class="btn btn-secondary ms-auto"> Cancelar </button>
+                </div>
+            </div>
+            
+        </div>
+    </form>
+</div>

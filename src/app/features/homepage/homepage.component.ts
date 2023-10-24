@@ -66,8 +66,8 @@ export class HomepageComponent implements OnInit{
             this.authDetails = data;
             this.loggedAs = this.authDetails.authAs;
             if(this.loggedAs !='Unauthenticated' && this.isTextVisible == false || this.loggedAs == 'Unauthenticated' && this.isTextVisible == true)
-            this.loggedAs;
-            this.toggleText();
+            {this.loggedAs;
+            this.toggleText();}
 
             
         }, error: (err) => {

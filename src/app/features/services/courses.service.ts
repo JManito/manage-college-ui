@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AddCourseRequest } from '../models/add-course-request.model';
 import { GetCourseRequest } from '../models/get-course-request.model';
+import { CourseInfo } from '../models/course-info.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -32,4 +33,8 @@ export class CoursesService {
   getCourse(id: string): Observable<GetCourseRequest>{
     return this.http.get<GetCourseRequest>(this.baseApiUrl + '/api/courses/' + id);
   }
+  getCourseInfo(id: number): Observable<CourseInfo[]>{
+    return this.http.post<CourseInfo[]>(this.baseApiUrl + '/api/courses/info', id);
+  }
 }
+  

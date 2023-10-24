@@ -1,6 +1,12 @@
 export interface Professor {
     professorId: number;
     professorName: string;
-    dateofBirth: Date;
+    dateOfBirth: string | null;
+    salary: number;
+}
+
+export interface AddProfessor {
+    professorName: string;
+    dateofBirth: Date ;
     salary: number;
 }

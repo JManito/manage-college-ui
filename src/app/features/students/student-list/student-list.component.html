@@ -1,0 +1,40 @@
+<div [ngSwitch]="loggedAs">
+    <div *ngSwitchCase="['Administrador', 'Professor', 'Aluno'].includes(loggedAs) ? loggedAs : !loggedAs">
+        <div class="container">
+            <h1 class="mt-3">Alunos</h1>
+            <table class="table" *ngIf="students && students.length > 0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Data de Nascimento</th>
+                        <th>Numero Inscrição</th>
+                        <th *ngSwitchCase="'Aluno'"></th>
+                        <th *ngSwitchCase="'Administrador'"></th>
+                        <th *ngSwitchCase="'Administrador'"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of students">
+                        <td>{{ student.studentId }}</td>
+                        <td>{{ student.studentName }}</td>
+                        <td>{{ student.dateOfBirth }}</td>
+                        <td>{{ student.enrollmentNumber }}</td>
+                        <td *ngSwitchCase="'Aluno'"> <a [routerLink]="['grades', student.studentId]"> Notas </a></td>
+                        <td *ngSwitchCase="'Administrador'"> <a [routerLink]="['edit', student.studentId]"> Edit </a></td>
+                        <td *ngSwitchCase="'Administrador'"> <a [routerLink]="['delete', student.studentId]"> Delete </a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p *ngIf="!students || students.length <= 0"> No students available/found </p>
+            <a *ngSwitchCase="'Administrador'" class="btn btn-primary" [routerLink]="['/students/add']">Adicionar Alunos</a>
+            <div class="mt-3">
+                <div class="btn-toolbar text-end">
+                    <button [routerLink]="['/']" class="btn btn-secondary ms-auto"> Voltar </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 

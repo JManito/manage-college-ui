@@ -16,8 +16,8 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" [routerLink]="['/courses']">Cursos</a></li>
               <li><a class="dropdown-item" [routerLink]="['/disciplines']">Disciplinas</a></li>
-              <li><a class="dropdown-item" routerLink="">Alunos</a></li>
-              <li><a class="dropdown-item" *ngIf="isTextVisibleNav">Professores</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/students']">Alunos</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/professors']">Professores</a></li>
             </ul>
           </li>
         </ul>

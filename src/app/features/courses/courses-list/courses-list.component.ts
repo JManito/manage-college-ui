@@ -3,13 +3,17 @@ import { GetCourseRequest } from '../../models/get-course-request.model';
 import { CoursesService } from '../../services/courses.service';
 import { HomepageService } from '../../services/homepage.service';
 import { Auth } from '../../models/authentication.model';
+import { Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-courses-list',
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.scss']
 })
-
+ 
 export class CoursesListComponent {
   courses: GetCourseRequest[] = [];
   loggedAs!: string;
@@ -20,7 +24,7 @@ export class CoursesListComponent {
     authAs: '',
     isAuth: 0,
   }
-  constructor(private CoursesService: CoursesService, private hs: HomepageService){  }
+  constructor(private CoursesService: CoursesService, private hs: HomepageService, private router: Router){  }
   
   ngOnInit(): void {
     

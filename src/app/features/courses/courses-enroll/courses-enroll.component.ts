@@ -22,9 +22,9 @@ export class CoursesEnrollComponent {
     courseName: ''
   }
   studentDetails: Student = {
-    studentId:0,
+    studentId: 0,
     studentName: '',
-    dateOfBirth: new Date(),
+    dateOfBirth: "",
     enrollmentNumber:0
 
   }
@@ -33,9 +33,7 @@ export class CoursesEnrollComponent {
   constructor(private router: Router, private route: ActivatedRoute, private coursesService: CoursesService, private ss: StudentService){
     this.addCourseModel = {
       CourseName: ''
-    };
-
-    
+    };  
 
   }
 
@@ -66,15 +64,29 @@ export class CoursesEnrollComponent {
 
   }
 
+  onChange(studentId: string) {
+    this.ss.getStudent(studentId).subscribe({
+      next: (response) => {
+        if(response == null) {
+          console.log("Aluno não encontrado!")
+        } else {
+          this.studentDetails = response;
+        }
+      },
+      error: (error) => {
+        console.log("Erro!")
+      }
+    })
+  }
+
   onFormSubmit() {
     
     this.route.paramMap.subscribe({
       next: (params) => {
-        debugger;
-        const id = params.get('courseId');
-        const studentId = params.get('studentId');
+        const id = params.get('id');
+        const studentId = this.studentDetails.studentId;
         if(id && studentId){
-          this.ss.enrollStudent(this.studentDetails, id, studentId).subscribe({
+          this.ss.enrollStudent(id, studentId).subscribe({
             next: (response) => {
               if(response == null) {
                 console.log("Aluno ja inscrito")
