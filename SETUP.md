@@ -23,13 +23,24 @@ npm install
 ```
 <sub> This command installs all the project dependencies specified in the package.json file.</sub>
 
-3. Start the Development Server
+3. Configure API Base URL
+Open the project's environment configuration files located in the src/environments folder. Update the baseApiUrl property to point to your API server:
+```
+export const environment = {
+  production: false,
+  baseApiUrl: 'http://your-api-server.com/api', // Update this URL
+};
+```
+
+<sub> This command installs all the project dependencies specified in the package.json file.</sub>
+
+4. Start the Development Server
 
 ```
 ng serve --o
 ```
 <sub>This command compiles the project and starts the development server. You should see an output indicating the server is running, typically at http://localhost:4200/.</sub>
 
-4. Open the Application
+5. Open the Application
 
 Open your web browser and navigate to http://localhost:4200/ (or the URL displayed in the console). You should see the application running.
