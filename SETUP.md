@@ -12,8 +12,8 @@ This guide provides step-by-step instructions to set up and run the Manage Colle
 1. Clone the Project
 
 ```
-git clone <repository_url>
-cd <project_directory>
+git clone https://github.com/JManito/manage-college-ui.git
+cd "$(basename "$_" .git)"
 ```
 
 2. Install Dependencies 
