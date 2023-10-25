@@ -11,35 +11,36 @@ This guide provides step-by-step instructions to set up and run the Manage Colle
 
 1. Clone the Project
 
-```
-git clone <repository_url>
-cd <project_directory>
+```GIT
+git clone https://github.com/JManito/manage-college-ui.git
+cd manage-college-ui
 ```
 
-2. Install Dependencies 
-
-```
+2. Install Dependencies
+   
+<sub> This command installs all the project dependencies specified in the package.json file. </sub>
+```JS
 npm install
 ```
-<sub> This command installs all the project dependencies specified in the package.json file.</sub>
+
 
 3. Configure API Base URL
-Open the project's environment configuration files located in the src/environments folder. Update the baseApiUrl property to point to your API server:
-```
+Open the project's environment configuration files located in the **src/environments** folder. Update the baseApiUrl property to point to your API server:
+
+<sub>You'll want to change the environment.development.ts or environment.ts file:</sub>
+```C#
 export const environment = {
   production: false,
   baseApiUrl: 'http://your-api-server.com/api', // Update this URL
 };
 ```
 
-<sub> This command installs all the project dependencies specified in the package.json file.</sub>
-
 4. Start the Development Server
 
-```
+```JS
 ng serve --o
 ```
-<sub>This command compiles the project and starts the development server. You should see an output indicating the server is running, typically at http://localhost:4200/.</sub>
+<sub>The final command compiles the project and starts the development server. You should see an output indicating the server is running, typically at http://localhost:4200/.</sub>
 
 5. Open the Application
 
