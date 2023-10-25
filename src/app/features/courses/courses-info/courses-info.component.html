@@ -5,10 +5,10 @@
             <table class="table" *ngIf="coursesInfo && coursesInfo.length > 0">
                 <thead>
                     <tr>
-                        <th class="text-center" scope="col">Course Id</th>
-                        <th class="text-center" scope="col">Course Name</th>
-                        <th class="text-center" scope="col">Number of Professors</th>
-                        <th class="text-center" scope="col">Student Averages</th> 
+                        <th class="text-center" scope="col">Id</th>
+                        <th class="text-center" scope="col">Nome</th>
+                        <th class="text-center" scope="col">Professores</th>
+                        <th class="text-center" scope="col">Medias de curso</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -19,11 +19,14 @@
                         <td class="text-center">
                             <div class="course-students">
                                 <ul class=" ">
+                                    <li class="list-group-item mt-3 text-center" *ngIf="course.courseStudentAverages.length == 0">
+                                        <span> O curso não tem estudantes </span>
+                                    </li>
                                     <li *ngFor="let student of course.courseStudentAverages" class="list-group-item mt-3  text-center">
                                         <span >
-                                            <b>StudentId:</b> {{ student.studentId }}  
-                                            <b>Name:</b> {{ student.studentName }} 
-                                            <b>Average:</b> {{ student.average }}
+                                            <b>Id:</b> {{ student.studentId }}  
+                                            <b>Nome:</b> {{ student.studentName }} 
+                                            <b>Média:</b> {{ student.average }}
                                         </span>
                                     </li>
                                 </ul>

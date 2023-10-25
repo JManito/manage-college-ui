@@ -10,7 +10,7 @@ export interface DisciplineInfo extends disciplineProfessor, Array<DisciplineStu
 interface disciplineProfessor {
     professorId: number;
     professorName: string;
-    dateOfBirth: Date;
+    dateOfBirth: string | null;
     salary: number;
 
 }

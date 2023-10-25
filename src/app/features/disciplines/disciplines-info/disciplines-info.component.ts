@@ -3,6 +3,7 @@ import { DisciplinesService } from '../../services/disciplines.service';
 import { HomepageService } from '../../services/homepage.service';
 import { Auth } from '../../models/authentication.model';
 import { DisciplineInfo } from '../../models/discipline-info.model';
+import { DatePipe } from '@angular/common'
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-disciplines-info',
@@ -20,7 +21,7 @@ export class DisciplinesInfoComponent {
     isAuth: 0,
   }
 
-  constructor(private DisciplineService: DisciplinesService, private hs: HomepageService, private route: ActivatedRoute, private router: Router){  }
+  constructor(public datepipe: DatePipe, private DisciplineService: DisciplinesService, private hs: HomepageService, private route: ActivatedRoute, private router: Router){  }
  
   ngOnInit(): void {
     
@@ -38,8 +39,9 @@ export class DisciplinesInfoComponent {
                     this.DisciplineService.getDisciplineInfo(id).subscribe({
                       next: (disciplines) => {
                         disciplines.forEach(element => {
+                              element.disciplineProfessor.dateOfBirth = this.datepipe.transform(element.disciplineProfessor.dateOfBirth, 'dd-MM-yyyy');
                               this.disciplineInfo = disciplines;
-                              console.log(this.disciplineInfo);
+
                        });
                       },
                       error: (response) => {

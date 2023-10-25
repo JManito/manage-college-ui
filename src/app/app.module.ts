@@ -27,6 +27,7 @@ import { StudentEditComponent } from './features/students/student-edit/student-e
 import { StudentListComponent } from './features/students/student-list/student-list.component';
 import { StudentAddComponent } from './features/students/student-add/student-add.component';
 import { StudentGradesComponent } from './features/students/student-grades/student-grades.component';
+import { FooterComponent } from './core/components/footer/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { StudentGradesComponent } from './features/students/student-grades/stude
     StudentEditComponent,
     StudentListComponent,
     StudentAddComponent,
-    StudentGradesComponent
+    StudentGradesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

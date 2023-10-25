@@ -6,10 +6,10 @@
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">Id</th>
-                        <th class="text-center" scope="col">Name</th>
+                        <th class="text-center" scope="col">Nome</th>
                         <th class="text-center" scope="col">Professor</th>
-                        <th class="text-center" scope="col">Class Number</th> 
-                        <th class="text-center" scope="col">Class</th> 
+                        <th class="text-center" scope="col">Numero de alunos</th> 
+                        <th class="text-center" scope="col">Turma</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -19,19 +19,19 @@
                         <td class=" ">
                                 <span>
                                     <li class=" list-group-item mt-3">
-                                    <b>Id:</b>
+                                    <b>Id: </b>
                                     {{ discipline.disciplineProfessor.professorId }}
                                     </li>
                                     <li class=" list-group-item mt-3">
-                                    <b>Name:</b>
-                                    {{ discipline.disciplineProfessor.professorName }}
+                                    <b>Nome: </b>
+                                    <a [routerLink]="['/professors']">{{ discipline.disciplineProfessor.professorName }} </a>
                                     </li>
                                     <li class=" list-group-item mt-3">
-                                    <b>Date of Birth:</b>
+                                    <b>Data de nascimento: </b>
                                     {{ discipline.disciplineProfessor.dateOfBirth }}
                                     </li>
                                     <li class=" list-group-item mt-3">
-                                    <b>Salary:</b>
+                                    <b>Salario: </b>
                                     {{ discipline.disciplineProfessor.salary }}
                                     </li>
 
@@ -42,10 +42,13 @@
                         <td class="text-center">
                             <div class="discipline-students">
                                 <ul class="">
+                                    <li class="list-group-item mt-3 text-center" *ngIf="discipline.disciplineStudent.length == 0">
+                                        <span> A disciplina não tem estudantes </span>
+                                    </li>
                                     <li *ngFor="let student of discipline.disciplineStudent" class="list-group-item mt-3 text-center">
                                         <span > 
-                                            <b>Name:</b> {{ student.studentName }} 
-                                            <b>Grade:</b> {{ student.grade }}
+                                            <b>Nome:</b> <a [routerLink]="['/students']"> {{ student.studentName }} </a>
+                                            <b>Nota:</b> {{ student.grade }}
                                         </span>
                                     </li>
                                 </ul>
@@ -55,7 +58,7 @@
                 </tbody>
             </table>
 
-            <p *ngIf="!disciplineInfo || disciplineInfo.length <= 0"> No courses available/found </p>
+            <p *ngIf="!disciplineInfo || disciplineInfo.length <= 0"> Não foi encontrada informação sobre a disciplina </p>
             <a *ngSwitchCase="'Administrador'" class="btn btn-primary" [routerLink]="['/disciplines/add']">Adicionar Disciplinas</a>
             
             <div class="mt-3">

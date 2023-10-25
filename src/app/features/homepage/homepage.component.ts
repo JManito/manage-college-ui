@@ -15,6 +15,7 @@ import { Auth } from '../models/authentication.model';
 export class HomepageComponent implements OnInit{
   textVisible: boolean = true;
   textVisibleNav: boolean = true;
+  textVisibleFooter: boolean = true;
   errorText: boolean = true;
   _textSubscription: any;
   loggedAs!: string;
@@ -29,15 +30,17 @@ export class HomepageComponent implements OnInit{
   constructor(public hs: HomepageService, private router: Router, private route: ActivatedRoute) {
     this.textVisible = hs.isTextVisible;
     this.textVisibleNav = hs.isTextVisibleNav;
+    this.textVisibleFooter = hs.isTextVisibleFooter;
     this.errorText = hs.isErrorTextVisible;
   }
   
   //ON BUTTON CLICK THIS ACTIVATES AND CHANGES THE USER
   setLoggedAs(role: string) {
+    
     this.loggedAs = role; // Set the variable to role
     //Sets model with new auth user
     this.authDetails.authAs = role;
-
+    //Auth mockup
     if(role != 'Unauthenticated') 
       this.authDetails.isAuth = 1;
     else
@@ -48,11 +51,20 @@ export class HomepageComponent implements OnInit{
       next: (response) => {
         if(this.loggedAs == 'Unauthenticated' && this.isTextVisible == true || this.loggedAs != 'Unauthenticated' && this.isTextVisible == false)
           this.toggleText();
-          if(this.loggedAs == 'Aluno' && this.isTextVisibleNav == true)
+          if(this.loggedAs == 'Aluno' && this.isTextVisibleNav == true){
+            this.updateSloggedAs(this.loggedAs);
             this.toggleTextNav();
-          if((this.loggedAs == 'Professor' || this.loggedAs == 'Administrador') && this.isTextVisibleNav == false)
+            this.toggleTextFooter();
+          }
+          if((this.loggedAs == 'Professor' || this.loggedAs == 'Administrador') && this.isTextVisibleNav == false){
+            this.updateSloggedAs(this.loggedAs);
             this.toggleTextNav();
-        
+            this.toggleTextFooter();
+          }
+          if((this.loggedAs == 'Professor' || this.loggedAs == 'Administrador') && this.isTextVisibleNav == true){
+            this.updateSloggedAs(this.loggedAs);
+            this.toggleTextFooter();
+          }
       }
     })
 
@@ -67,7 +79,8 @@ export class HomepageComponent implements OnInit{
             this.loggedAs = this.authDetails.authAs;
             if(this.loggedAs !='Unauthenticated' && this.isTextVisible == false || this.loggedAs == 'Unauthenticated' && this.isTextVisible == true)
             {this.loggedAs;
-            this.toggleText();}
+            this.toggleText();
+            }
 
             
         }, error: (err) => {
@@ -93,18 +106,27 @@ export class HomepageComponent implements OnInit{
   get isTextVisibleNav(): boolean {
     return this.hs.isTextVisibleNav;
   }
+  get isTextVisibleFooter(): boolean {
+    return this.hs.isTextVisibleFooter;
+  }
   get isErrorTextVisible(): boolean {
     return this.hs.isErrorTextVisible;
   }
   //Calls service function to hide infobox
-  toggleText() {
+  toggleText() { 
     this.hs.toggleTextVisibility();
   }
   toggleTextNav() {
     this.hs.toggleTextVisibilityNav();
   }
+  toggleTextFooter() {
+    this.hs.toggleTextVisibilityFooter();
+  }
   toggleErrorText() {
     this.hs.toggleErrorTextVisibility();
+  }
+  updateSloggedAs(value: any) {
+    this.hs.updateSloggedAs(value);
   }
 
 }

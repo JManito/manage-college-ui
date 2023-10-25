@@ -37,7 +37,7 @@ export class NavbarComponent {
               {
                   this.ToggleTextNav();
                 
-              }
+              } 
             }      
         }, error: (err) => {
             console.error(err);
