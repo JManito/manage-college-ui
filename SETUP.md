@@ -38,7 +38,7 @@ export const environment = {
 4. Start the Development Server
 
 ```JS
-ng serve --o
+npm start
 ```
 <sub>The final command compiles the project and starts the development server. You should see an output indicating the server is running, typically at http://localhost:4200/.</sub>
 
